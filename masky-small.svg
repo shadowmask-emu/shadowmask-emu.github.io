@@ -4,19 +4,12 @@
   <!-- Masky, rev 02, simplified for 16-24px use (favicon, menu glyph, tab icon).
        Scanlines and the mouth are dropped - below ~28px they are sub-pixel and
        turn to mush. Eyes are enlarged 7.6 -> 9.2 and the afterglow 2.4 -> 3.2
-       so both survive. Silhouette and colours are identical to masky.svg. -->
+       so both survive. Silhouette and colours are identical to masky.svg, and
+       the eyes are cut out the same way (even-odd, no mask). -->
 
-  <defs>
-    <mask id="masky-small-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
-      <path d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z" fill="#ffffff"/>
-      <circle cx="48" cy="66" r="9.2" fill="#000000"/>
-      <circle cx="80" cy="66" r="9.2" fill="#000000"/>
-    </mask>
-  </defs>
-
-  <g mask="url(#masky-small-holes)">
-    <path d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z" fill="#cdf0e8"/>
-  </g>
+  <path fill-rule="evenodd" fill="#cdf0e8" d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z
+    M38.8 66a9.2 9.2 0 1 0 18.4 0a9.2 9.2 0 1 0-18.4 0Z
+    M70.8 66a9.2 9.2 0 1 0 18.4 0a9.2 9.2 0 1 0-18.4 0Z"/>
 
   <circle cx="50" cy="64" r="3.2" fill="#3ee85f"/>
   <circle cx="82" cy="64" r="3.2" fill="#3ee85f"/>

@@ -2,36 +2,30 @@
   <title id="masky-title">Masky</title>
 
   <!-- Masky, rev 02.
-       Holes are real transparency (mask), so the mark sits on any ground.
+       Holes are real transparency, so the mark sits on any ground. They are
+       cut out of the body path (even-odd), not masked: Safari sometimes draws
+       an SVG image without its mask.
        Body #cdf0e8 - phosphor pale. Afterglow #3ee85f - P22 green.
        Scanline overlay is 22% #0d1014 at a 4-unit pitch. -->
 
   <defs>
-    <clipPath id="masky-body-clip">
-      <path d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z"/>
-    </clipPath>
-
     <pattern id="masky-scan" width="4" height="4" patternUnits="userSpaceOnUse">
       <rect width="4" height="1.7" fill="#0d1014" opacity="0.22"/>
     </pattern>
-
-    <!-- white keeps, black punches through -->
-    <mask id="masky-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
-      <path d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z" fill="#ffffff"/>
-      <circle cx="49" cy="66" r="7.6" fill="#000000"/>
-      <circle cx="79" cy="66" r="7.6" fill="#000000"/>
-      <circle cx="56" cy="84" r="2.6" fill="#000000"/>
-      <circle cx="64" cy="86" r="2.6" fill="#000000"/>
-      <circle cx="72" cy="84" r="2.6" fill="#000000"/>
-    </mask>
   </defs>
 
-  <g mask="url(#masky-holes)">
-    <path d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z" fill="#cdf0e8"/>
-    <g clip-path="url(#masky-body-clip)">
-      <rect x="18" y="28" width="92" height="84" fill="url(#masky-scan)"/>
-    </g>
-  </g>
+  <path fill-rule="evenodd" fill="#cdf0e8" d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z
+    M41.4 66a7.6 7.6 0 1 0 15.2 0a7.6 7.6 0 1 0-15.2 0Z
+    M71.4 66a7.6 7.6 0 1 0 15.2 0a7.6 7.6 0 1 0-15.2 0Z
+    M53.4 84a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z
+    M61.4 86a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z
+    M69.4 84a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z"/>
+  <path fill-rule="evenodd" fill="url(#masky-scan)" d="M22 74A42 42 0 0 1 106 74L106 108 92 95 78 108 64 95 50 108 36 95 22 108Z
+    M41.4 66a7.6 7.6 0 1 0 15.2 0a7.6 7.6 0 1 0-15.2 0Z
+    M71.4 66a7.6 7.6 0 1 0 15.2 0a7.6 7.6 0 1 0-15.2 0Z
+    M53.4 84a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z
+    M61.4 86a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z
+    M69.4 84a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0Z"/>
 
   <!-- afterglow, sits inside the eye holes -->
   <circle cx="51" cy="64" r="2.4" fill="#3ee85f"/>
